@@ -1,0 +1,153 @@
+﻿@model FTApp.Models.Cust
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 id="detailHeading">Your fortune</h2>
+
+<div>
+    <div class="col-xs-6 col-md-3" id="detailsStuff">
+        <p>
+            @Html.DisplayFor(model => model.FirstName)
+            @Html.DisplayFor(model => model.LastName)
+        </p>
+        @* Age *@
+        @if (Model.Age % 2 != 0)
+        {
+
+
+            <p>You'll retire in 35 years</p>
+        }
+        else
+        {
+            <p>You'll retire in 20 years</p>
+        }
+
+        @* Retire *@
+        @if (Model.BirthMonth >= 1 && Model.BirthMonth <= 4)
+        {
+            <p>with $500,000.00 in the bank</p>
+        }
+        else if (Model.BirthMonth >= 5 && Model.BirthMonth <= 8)
+        {
+            <p>with $250,000.00 in the bank</p>
+        }
+        else if (Model.BirthMonth >= 9 && Model.BirthMonth <= 12)
+        {
+            <p>with $1,000,000.00 in the bank</p>
+        }
+        else
+        {
+            <p>with $0.00 in the bank</p>
+        }
+
+        @* Siblings *@
+        @if (Model.NumberOfSiblings == 0)
+        {
+            <p>and will have a vacation home in Hawaii</p>
+        }
+        else if (Model.NumberOfSiblings == 1)
+        {
+            <p>and will have a vacation home in Florida</p>
+        }
+        else if (Model.NumberOfSiblings == 2)
+        {
+            <p>and will have a vacation home in San Diego</p>
+        }
+        else if (Model.NumberOfSiblings == 3)
+        {
+            <p>and will have a vacation home in Paris</p>
+
+        }
+        else
+        {
+            <p>and will have a vacation home in Parent's Basement</p>
+        }
+
+        @* Transportation *@
+        @switch (Model.FavoriteColor = Model.FavoriteColor.ToLower())
+        {
+            case "red":
+                <p>with a Row Boat</p>
+                break;
+            case "orange":
+                <p>with a Ocean Liner</p>
+                break;
+            case "yellow":
+                <p>with a Yacht</p>
+                break;
+            case "green":
+                <p>with a Golf Cart</p>
+                break;
+            case "blue":
+                <p>with a Buick</p>
+                break;
+            case "indigo":
+                <p>with a Infinity Q70</p>
+                break;
+            case "violet":
+                <p>with a Van</p>
+                break;
+        }
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.CustomerID }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+    </div>
+</div>
+@*<div>
+    <h4>Cust</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthMonth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirthMonth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FavoriteColor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FavoriteColor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumberOfSiblings)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumberOfSiblings)
+        </dd>
+
+    </dl>
+</div>*@
+
